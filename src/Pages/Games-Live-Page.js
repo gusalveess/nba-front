@@ -28,7 +28,7 @@ export default function Home() {
       <Center>
         <ContainerGames>
           {data.length !== 0 ? (
-            data.slice(1,20).map((item, index) => (
+            data.map((item, index) => (
               <GamesLiveProps
                 key={index}
                 id={item.id}

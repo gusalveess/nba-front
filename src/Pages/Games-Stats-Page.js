@@ -17,7 +17,12 @@ export default function GameStats() {
   const [team, setTeam] = useState("");
   const [dataPlayer, setDataPlayer] = useState([]);
   const [comment, setComment] = useState([]);
+  const [comments, setComments] = useState("");
+  const [change, setChange] = useState(false);
   const { gameid } = useParams();
+  const getting = localStorage.getItem("token");
+  const stringfy = JSON.stringify(getting);
+  const token = JSON.parse(stringfy);
 
   function Choose(string) {
     setTeam(string);
@@ -31,6 +36,28 @@ export default function GameStats() {
     });
     promise.catch((err) => {
       alert(err);
+    });
+  }
+
+  function PostComment(e) {
+    e.preventDefault();
+    const config = { headers: { Authorization: `Bearer ${token}` } };
+    const body = {
+      comment: comments,
+      gameid: parseInt(gameid),
+    };
+    const promise = axios.post(
+      "http://localhost:4000/comments/create",
+      body,
+      config
+    );
+    promise.then(() => {
+      setTimeout(() => {
+        window.location.reload(true)
+      }, 1000);
+    });
+    promise.catch((err) => {
+      console.log(err);
     });
   }
 
@@ -123,8 +150,46 @@ export default function GameStats() {
             ))}
           </ContainerComment>
           <span>
-            <input type="text" placeholder="Comente sobre o jogo" />
-            <button>Enviar</button>
+            <form
+              style={token === null ? { display: "none" } : { display: "flex" }}
+              onSubmit={PostComment}
+            >
+              <input
+                style={
+                  token === null ? { display: "none" } : { display: "flex" }
+                }
+                type="text"
+                placeholder="Comente sobre o jogo"
+                value={comments}
+                onChange={(e) => setComments(e.target.value)}
+              />
+              <button
+                style={
+                  token === null ? { display: "none" } : { display: "block" }
+                }
+              >
+                Enviar
+              </button>
+            </form>
+          </span>
+          <span
+            style={
+              token === null
+                ? {
+                    display: "block",
+                    border: "1px solid #fff",
+                    marginTop: "20px",
+                  }
+                : { display: "none" }
+            }
+          >
+            <h3
+              style={
+                token === null ? { display: "block" } : { display: "none" }
+              }
+            >
+              Entre em sua conta para poder comentar o jogo do seu time!
+            </h3>
           </span>
         </div>
       </Container>

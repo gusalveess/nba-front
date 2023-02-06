@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   margin-top: 180px;
 
   input {
@@ -17,10 +19,11 @@ export const Container = styled.div`
   }
   span {
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   input::placeholder {
-    padding-left: 10px;
     font-size: 20px;
     font-family: "Sunflower", sans-serif;
     color: gray;
@@ -40,11 +43,18 @@ export const Container = styled.div`
   button:hover {
     background-color: #F38225;
   }
+
+  h3 {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
 `;
 
 export const ContainerStats = styled.div`
   border-radius: 20px 20px 0px 0px;
-  border: 1px solid #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,6 +65,7 @@ export const ContainerStats = styled.div`
 export const ContainerComment = styled.div`
   border: 1px solid #fff;
   border-radius: 20px 20px 0px 0px;
+  margin-top: 50px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -99,7 +110,7 @@ export const ContainerComment = styled.div`
     font-family: "Sunflower", sans-serif;
     font-weight: 200;
     font-size: 16px;
-    padding-top: 5px;
+    padding-top: 15px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
