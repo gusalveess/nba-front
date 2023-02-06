@@ -72,7 +72,6 @@ export const Box = styled.div`
   input::placeholder {
     font-size: 24px;
     font-family: "Roboto", sans-serif;
-    
   }
 
   p {

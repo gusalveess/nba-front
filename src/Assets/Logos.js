@@ -101,7 +101,7 @@ export const Logo = [
   },
   {
     nick: "Bucks",
-    logo: "https://o.remove.bg/downloads/ebd9b046-a0a6-423f-81f2-8be759990563/95bf3a11492805be145e333982a09e2d-removebg-preview.png",
+    logo: "https://uploaddeimagens.com.br/images/004/331/853/full/images-removebg-preview_%281%29.png?1675708597",
   },
   {
     nick: "Knicks",

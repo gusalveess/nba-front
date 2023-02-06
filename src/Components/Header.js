@@ -40,6 +40,7 @@ export default function Header() {
           <IoMdBasketball onClick={() => Navigate("/")} />
           <CiCalendarDate onClick={() => Navigate("/game/date")} />
           <GiBasketballJersey
+          onClick={() => Navigate('/user/my')}
             style={token === null ? { display: "none" } : { display: "block" }}
           />
           {token === null ? (
