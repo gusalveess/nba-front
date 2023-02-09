@@ -32,6 +32,7 @@ export default function GameStats() {
         (item) => item.team.nickname === string
       );
       setDataPlayer(filter);
+      console.log(response.data);
       console.log(dataPlayer);
     });
     promise.catch((err) => {
@@ -53,7 +54,7 @@ export default function GameStats() {
     );
     promise.then(() => {
       setTimeout(() => {
-        window.location.reload(true)
+        window.location.reload(true);
       }, 1000);
     });
     promise.catch((err) => {
@@ -106,21 +107,27 @@ export default function GameStats() {
           )}
           <ContainerData>
             <div>
-              <span>Pos</span>
+              <span>Posição</span>
               <span>
                 <p>Jogador</p>
               </span>
               <span>
-                <p>Min</p>
+                <p>Minutos</p>
               </span>
               <span>
-                <p>Pts</p>
+                <p>Pontos</p>
               </span>
               <span>
-                <p>Ast</p>
+                <p>Assistências</p>
               </span>
               <span>
-                <p>Reb</p>
+                <p>Rebotes</p>
+              </span>
+              <span>
+                <p>Roubos</p>
+              </span>
+              <span>
+                <p>Bloqueios</p>
               </span>
             </div>
             {dataPlayer.map((item, index) => (
@@ -133,6 +140,8 @@ export default function GameStats() {
                 pts={item.points}
                 ast={item.assists}
                 reb={item.totReb}
+                steals={item.steals}
+                blocks={item.blocks}
               />
             ))}
           </ContainerData>
@@ -177,15 +186,17 @@ export default function GameStats() {
               token === null
                 ? {
                     display: "block",
-                    border: "1px solid #fff",
                     marginTop: "20px",
+                    marginBottom: "30px",
                   }
                 : { display: "none" }
             }
           >
             <h3
               style={
-                token === null ? { display: "block" } : { display: "none" }
+                token === null
+                  ? { display: "flex", justifyContent: "center" }
+                  : { display: "none" }
               }
             >
               Entre em sua conta para poder comentar o jogo do seu time!

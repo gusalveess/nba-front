@@ -8,7 +8,7 @@ export const Container = styled.div`
   margin-top: 180px;
 
   input {
-    width: 576px;
+    width: 876px;
     height: 47px;
     margin-bottom: 30px;
     border: none;
@@ -69,8 +69,8 @@ export const ContainerComment = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 700px;
-  height: 700px;
+  width: 1000px;
+  height: 400px;
   overflow-y: scroll;
 
   div {
@@ -89,8 +89,6 @@ export const ContainerComment = styled.div`
 
   span {
     background-color: #F0F2F5;
-    margin-top: 5px;
-    margin-bottom: 5px;
     margin-left: 10px;
     display: flex;
     border-radius: 5px;
@@ -102,8 +100,8 @@ export const ContainerComment = styled.div`
     font-family: "Sunflower", sans-serif;
     font-weight: 600;
     font-size: 16px;
-    padding-left: 15px;
-    padding-top: 5px;
+    padding-left: 12px;
+  
   }
 
   p {
@@ -112,7 +110,7 @@ export const ContainerComment = styled.div`
     font-size: 16px;
     padding-top: 15px;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 25px;
     padding-bottom: 10px;
   }
 `;
@@ -222,7 +220,7 @@ export const ContainerData = styled.div`
   }
 
   span {
-    width: 160px;
+    width: 180px;
     display: flex;
     justify-content: center;
     align-items: center;

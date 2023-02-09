@@ -38,4 +38,19 @@ div {
     width: 300px;
 }
 
+@media (max-width: 600px) {
+        img {
+            height: 120px;
+            width: 120px;
+        }
+
+        svg {
+            height: 40px;
+        }
+
+        div {
+            width: 220px;
+        }
+	}
+
 `

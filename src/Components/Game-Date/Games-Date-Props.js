@@ -1,6 +1,6 @@
-import { CardGame, Flex, Sheduled } from "../../Styles/games-date-style";
+import { CardGame, Flex } from "../../Styles/games-live-style";
 import { Logo } from "../../Assets/Logos";
-import { GiBasketballBasket, GiSharpCrown } from "react-icons/gi";
+import { GiBasketballBasket } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 
 export default function GamesLiveProps(props) {
@@ -16,28 +16,37 @@ export default function GamesLiveProps(props) {
     <>
       <Flex>
         <CardGame>
-          <img src={logoHome} />
+          <span>
+            <img src={logoHome} />
+          </span>
+
           <span>
             <p>{props.nicknameHome}</p>
           </span>
-          {props.status === "Scheduled" ? (
-            <h1>Em breve</h1>
-          ) : (
-            <Sheduled>
-              <div>
-                <h2>{props.homePoints}</h2>
-              </div>
-              <p>X</p>
-              <div>
-                <h2>{props.visiPoints}</h2>
-              </div>
-            </Sheduled>
-          )}
+
+          <span>
+            <div>
+              <h2>{props.homePoints}</h2>
+            </div>
+          </span>
+
+          <span>
+            <p>X</p>
+          </span>
+
+          <span>
+            <div>
+              <h2>{props.visiPoints}</h2>
+            </div>
+          </span>
+
           <span>
             <p>{props.visiNickname}</p>
           </span>
 
-          <img src={logoVisitors} />
+          <span>
+            <img src={logoVisitors} />
+          </span>
         </CardGame>
         <span>
           <button onClick={() => Navigate(`/game/${props.id}`)}>

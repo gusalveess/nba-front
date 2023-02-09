@@ -159,6 +159,7 @@ export const Center = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
 `;
 
 export const ContainerGames = styled.div`
@@ -166,9 +167,8 @@ export const ContainerGames = styled.div`
   border-radius: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
   flex-direction: column;
-  width: 1100px;
+  width: 80%;
   margin-bottom: 40px;
 
 `;

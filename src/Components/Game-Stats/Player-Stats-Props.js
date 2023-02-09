@@ -8,6 +8,8 @@ export default function PlayerStats(props) {
             <span> <h1>{props.pts}</h1></span>
             <span><h1>{props.ast}</h1></span>
             <span><h1>{props.reb}</h1></span>
+            <span><h1>{props.steals}</h1></span>
+            <span><h1>{props.blocks}</h1></span>
           </div>
         </>
     )

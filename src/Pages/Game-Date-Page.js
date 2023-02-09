@@ -1,7 +1,6 @@
 import Header from "../Components/Header";
 import { useState, useEffect } from "react";
-import { Container } from "../Styles/games-date-style";
-import { Center, ContainerGames } from "../Styles/games-date-style";
+import { Container, Center, ContainerGames } from "../Styles/games-date-style";
 import GamesLiveProps from "../Components/Games-Live/Games-Live-Props";
 import axios from "axios";
 
