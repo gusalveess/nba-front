@@ -40,7 +40,8 @@ export const Container = styled.div`
     }
 
     button {
-      width: 95px;
+      width: 86px;
+      font-size: 14px;
     }
   }
 `;
@@ -61,5 +62,11 @@ export const CardTeam = styled.span`
   h1 {
     font-family: "Sunflower", sans-serif;
     color: #fff;
+  }
+
+  @media (max-width: 600px) {
+   h1 {
+    font-size: 14px;
+   }
   }
 `;

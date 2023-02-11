@@ -6,6 +6,7 @@ const API = APICall();
 const token = GetToken();
 
 function GetMyProfile() {
+  console.log(token)
   const config = { headers: { Authorization: `Bearer ${token}` } };
   const promise = axios.get(`${API}/user/my`, config);
   return promise;

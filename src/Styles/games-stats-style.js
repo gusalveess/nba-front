@@ -67,6 +67,10 @@ export const Container = styled.div`
   @media (max-width: 600px) {
     margin-top: 120px;
 
+    h3 {
+      font-size: 13.5px;
+    }
+
     input {
       width: 100%;
       padding-left: 10px;
