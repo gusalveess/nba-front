@@ -19,6 +19,21 @@ export const Container = styled.div`
 
 
   h1 {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  h4 {
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
@@ -49,6 +64,28 @@ export const Container = styled.div`
 
   button:hover {
     background-color: #F38225;
+  }
+
+  @media (max-width: 600px) {
+   h1 {
+    font-size: 20px;
+   }
+   div {
+    width: 102%;
+   }
+
+   h2 {
+    font-size: 14px;
+   }
+
+   h4 {
+    display: none;
+   }
+
+   button {
+    margin-left: 10px;
+    width: 100px;
+   }
   }
 `;
 
@@ -103,6 +140,16 @@ input {
     display: flex;
     justify-content: space-around;
     margin-bottom: 60px;
+  }
+
+  @media (max-width: 600px) {
+   input {
+    width: 150px;
+   }
+
+   span {
+    width: 100%;
+   }
   }
 `
 

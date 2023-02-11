@@ -1,6 +1,7 @@
-import { CardGame, Flex } from "../../Styles/games-live-style";
+import { CardGame, Flex } from "../../Styles/games-date-style";
 import { Logo } from "../../Assets/Logos";
 import { GiBasketballBasket } from "react-icons/gi";
+import { AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 export default function GamesLiveProps(props) {
@@ -10,6 +11,7 @@ export default function GamesLiveProps(props) {
   const logoVisFilter = Logo.filter((item) => item.nick === props.visiNickname);
   const logoHome = logoHomeFilter.map((item) => item.logo);
   const logoVisitors = logoVisFilter.map((item) => item.logo);
+  const width = window.screen.width;
   const Navigate = useNavigate();
 
   return (
@@ -25,17 +27,29 @@ export default function GamesLiveProps(props) {
           </span>
 
           <span>
-            <div>
+            <div
+              style={
+                props.status === "Scheduled"
+                  ? { display: "none" }
+                  : { display: "flex" }
+              }
+            >
               <h2>{props.homePoints}</h2>
             </div>
           </span>
 
           <span>
-            <p>X</p>
+            {props.status === "Scheduled" ? <h3>Em Breve</h3> : <h3>X</h3>}
           </span>
 
           <span>
-            <div>
+            <div
+              style={
+                props.status === "Scheduled"
+                  ? { display: "none" }
+                  : { display: "flex" }
+              }
+            >
               <h2>{props.visiPoints}</h2>
             </div>
           </span>
@@ -49,10 +63,15 @@ export default function GamesLiveProps(props) {
           </span>
         </CardGame>
         <span>
-          <button onClick={() => Navigate(`/game/${props.id}`)}>
-            Ver Mais
-            <GiBasketballBasket />
-          </button>
+          {width > 600 ? (
+            <button onClick={() => Navigate(`/game/${props.id}`)}>
+              Ver Mais <GiBasketballBasket />
+            </button>
+          ) : (
+            <button onClick={() => Navigate(`/game/${props.id}`)}>
+              <AiOutlineEye />
+            </button>
+          )}
         </span>
       </Flex>
     </>

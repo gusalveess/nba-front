@@ -2,15 +2,13 @@ import { useState } from "react";
 import Header from "../Components/Header";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Container, Box } from "../Styles/authentication-style";
-import axios from "axios";
-import { MutatingDots } from "react-loader-spinner";
+import AuthenticationAPI from "../Services/Authentication-API";
 import { useNavigate } from "react-router-dom";
 
 export default function SignInPage() {
   const [type, setType] = useState("password");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loader, setLoader] = useState("Entrar");
   const Navigate = useNavigate();
 
   function Post(e) {
@@ -19,24 +17,11 @@ export default function SignInPage() {
       email: email,
       password: password,
     };
-    const promise = axios.post("http://localhost:4000/sign-in", body);
+    const promise = AuthenticationAPI.SignInService(body);
 
     promise.then((res) => {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("name", res.data.name);
-      setLoader(
-        <MutatingDots
-          height="100"
-          width="100"
-          color="#fff"
-          secondaryColor="#fff"
-          radius="12.5"
-          ariaLabel="mutating-dots-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
-      );
       Navigate("/");
     });
     promise.catch((error) => {
@@ -49,7 +34,7 @@ export default function SignInPage() {
       <Header />
       <Container>
         <Box>
-          <img src="https://logospng.org/download/nba/logo-nba-2048.png" />
+          <img src="https://logospng.org/download/nba/logo-nba-2048.png" alt="logo"/>
           <form onSubmit={Post}>
             <input
               type="text"
@@ -68,9 +53,9 @@ export default function SignInPage() {
             ) : (
               <AiOutlineEyeInvisible onClick={() => setType("password")} />
             )}
-            <button>{loader}</button>
+            <button>Entrar</button>
           </form>
-          <button onClick={() => Navigate('/sign-up')}>
+          <button onClick={() => Navigate("/sign-up")}>
             Não tem conta ainda? Cadastre-se e Torça já pelo seu time!
           </button>
         </Box>

@@ -1,8 +1,8 @@
 import Header from "../Components/Header";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Container, Center, ContainerGames } from "../Styles/games-date-style";
-import GamesLiveProps from "../Components/Games-Live/Games-Live-Props";
-import axios from "axios";
+import GamesDateProps from "../Components/Game-Date/Games-Date-Props";
+import GamesService from "../Services/Games-API";
 
 export default function DatePage() {
   const [data, setData] = useState([]);
@@ -11,10 +11,9 @@ export default function DatePage() {
 
   function GetGames(e) {
     e.preventDefault();
-    const promise = axios.get(`http://localhost:4000/games/date/${format}`);
+    const promise = GamesService.GamePerDate(format);
 
     promise.then((response) => {
-      console.log(response.data);
       setData(response.data);
     });
     promise.catch((err) => {
@@ -41,7 +40,7 @@ export default function DatePage() {
           <ContainerGames>
             {data.length !== 0 ? (
               data.map((item, index) => (
-                <GamesLiveProps
+                <GamesDateProps
                   key={index}
                   id={item.id}
                   nicknameHome={item.teams.home.nickname}
@@ -54,7 +53,7 @@ export default function DatePage() {
                 />
               ))
             ) : (
-              <img src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif" />
+              <img src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif" alt="loading"/>
             )}
           </ContainerGames>
         </Center>

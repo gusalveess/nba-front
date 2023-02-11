@@ -1,18 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HeaderComponent } from "../Styles/header-style";
-import { IoMdBasketball } from "react-icons/io";
-import { CiCalendarDate } from "react-icons/ci";
 import { BsPersonCircle } from "react-icons/bs";
-import { GiBasketballJersey } from "react-icons/gi";
 import { BiLogOut } from "react-icons/bi";
 import axios from "axios";
+import MenuPopupState from "./Menu";
 
 export default function Header() {
   const Navigate = useNavigate();
-  const getting = localStorage.getItem("token");
-  const stringfy = JSON.stringify(getting);
-  const token = JSON.parse(stringfy);
+  const token = JSON.parse(JSON.stringify(localStorage.getItem("token")));
 
   function Logout() {
     const config = { headers: { Authorization: `Bearer ${token}` } };
@@ -30,6 +26,7 @@ export default function Header() {
     promise.catch((err) => console.log(err));
   }
 
+
   return (
     <>
       <HeaderComponent>
@@ -37,12 +34,7 @@ export default function Header() {
         <span></span>
         <span></span>
         <div>
-          <IoMdBasketball onClick={() => Navigate("/")} />
-          <CiCalendarDate onClick={() => Navigate("/game/date")} />
-          <GiBasketballJersey
-          onClick={() => Navigate('/user/my')}
-            style={token === null ? { display: "none" } : { display: "block" }}
-          />
+          <MenuPopupState />
           {token === null ? (
             <BsPersonCircle onClick={() => Navigate("/sign-in")} />
           ) : (

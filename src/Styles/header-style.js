@@ -35,8 +35,10 @@ svg:hover {
 div {
     display: flex;
     justify-content: space-around;
-    width: 300px;
+    align-items: center;
+    width: 200px;
 }
+
 
 @media (max-width: 600px) {
         img {
@@ -49,7 +51,7 @@ div {
         }
 
         div {
-            width: 220px;
+            width: 150px;
         }
 	}
 

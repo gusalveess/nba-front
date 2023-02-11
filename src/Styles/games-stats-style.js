@@ -15,6 +15,9 @@ export const Container = styled.div`
     outline: none;
     padding-left: 20px;
     font-size: 20px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 10px 0px 100px 5px rgba(0, 0, 0, 0.6);
     font-family: "Sunflower", sans-serif;
   }
   span {
@@ -36,20 +39,46 @@ export const Container = styled.div`
     font-family: "Sunflower", sans-serif;
     font-weight: 600;
     outline: none;
-    background-color: #0D0D14;
+    background-color: #0d0d14;
     color: #fff;
   }
 
   button:hover {
-    background-color: #F38225;
+    background-color: #f38225;
   }
 
   h3 {
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     margin-top: 20px;
     margin-bottom: 20px;
     color: #fff;
+  }
+
+  h4 {
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 120px;
+
+    input {
+      width: 100%;
+      padding-left: 10px;
+      margin-bottom: 5px;
+    }
+    form {
+      width: 100%;
+    }
+
+    h4 {
+      font-size: 15px
+    }
   }
 `;
 
@@ -65,6 +94,7 @@ export const ContainerStats = styled.div`
 export const ContainerComment = styled.div`
   border: 1px solid #fff;
   border-radius: 20px 20px 0px 0px;
+  background-color: transparent;
   margin-top: 50px;
   display: flex;
   align-items: center;
@@ -82,13 +112,13 @@ export const ContainerComment = styled.div`
   img {
     height: 40px;
     width: 50px;
-    border-radius: 50%;
+    border-radius: 40%;
     padding-bottom: 5px;
     padding-left: 10px;
   }
 
   span {
-    background-color: #F0F2F5;
+    background-color: #f0f2f5;
     margin-left: 10px;
     display: flex;
     border-radius: 5px;
@@ -100,18 +130,33 @@ export const ContainerComment = styled.div`
     font-family: "Sunflower", sans-serif;
     font-weight: 600;
     font-size: 16px;
-    padding-left: 12px;
-  
+    padding-left: 10px;
   }
 
   p {
     font-family: "Sunflower", sans-serif;
     font-weight: 200;
     font-size: 16px;
-    padding-top: 15px;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 25px;
     padding-bottom: 10px;
+  }
+
+  @media (max-width: 600px) {
+    max-width: 371px;
+    border-radius: 0px;
+
+    p {
+      padding-right: 10px;
+    }
+
+    img {
+      max-width: 50px;
+      box-sizing: border-box;
+      width: auto;
+    }
+
   }
 `;
 
@@ -121,14 +166,12 @@ export const CardGame = styled.div`
   align-items: center;
   height: 80px;
   width: 750px;
-  margin-bottom: 15px;
 
   img {
     height: 80px;
     width: 80px;
     padding-left: 10px;
   }
-
 
   p {
     font-family: "Sunflower", sans-serif;
@@ -155,16 +198,36 @@ export const CardGame = styled.div`
     height: 40px;
     border-radius: 10px;
   }
+
+  @media (max-width: 600px) {
+    width: 100px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      padding-left: 5px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    h2 {
+      font-size: 15px;
+    }
+
+    div {
+      border: none;
+    }
+  }
 `;
 
 export const Flex = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
-display: flex;
-justify-content: center;
-  `
-
-  export const ContainerNicks = styled.div`
-
+export const ContainerNicks = styled.div`
   display: flex;
   justify-content: space-around;
   width: 600px;
@@ -175,7 +238,7 @@ justify-content: center;
     width: 0px;
     height: 43px;
     margin-bottom: 70px;
-    }
+  }
 
   button {
     height: 49px;
@@ -190,13 +253,20 @@ justify-content: center;
   }
 
   button:hover {
-    background-color: #F38225;
+    background-color: #f38225;
   }
-  
-  `
+
+  @media (max-width: 600px) {
+    width: 300px;
+
+    button {
+      width: 100px;
+      font-size: 14px;
+    }
+  }
+`;
 
 export const ContainerData = styled.div`
-
   width: 100%;
 
   div {
@@ -226,4 +296,27 @@ export const ContainerData = styled.div`
     align-items: center;
   }
 
-`
+  img {
+    width: 25px;
+    height: 25px;
+  }
+
+  @media (max-width: 600px) {
+    width: 385px;
+
+    p {
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: 11px;
+    }
+    img {
+      padding-right: 5px;
+    }
+
+    span {
+      width: 40px;
+    }
+  }
+`;

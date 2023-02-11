@@ -1,6 +1,5 @@
 import Header from "../Components/Header";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import {
   Container,
@@ -11,29 +10,25 @@ import {
 import GameStatsProps from "../Components/Game-Stats/Game-Stats-Props";
 import PlayerStats from "../Components/Game-Stats/Player-Stats-Props";
 import CommentsProps from "../Components/Game-Stats/Game-Comments-Props";
+import GamesService from "../Services/Games-API";
+import { GetToken } from "../Custom-Hooks/Token";
 
 export default function GameStats() {
   const [data, setData] = useState([]);
-  const [team, setTeam] = useState("");
   const [dataPlayer, setDataPlayer] = useState([]);
   const [comment, setComment] = useState([]);
   const [comments, setComments] = useState("");
-  const [change, setChange] = useState(false);
   const { gameid } = useParams();
-  const getting = localStorage.getItem("token");
-  const stringfy = JSON.stringify(getting);
-  const token = JSON.parse(stringfy);
+  const token = GetToken();
+  const width = window.screen.width;
 
   function Choose(string) {
-    setTeam(string);
-    const promise = axios.get(`http://localhost:4000/games/${gameid}`);
+    const promise = GamesService.ChooseService(gameid);
     promise.then((response) => {
       const filter = response.data.filter(
         (item) => item.team.nickname === string
       );
       setDataPlayer(filter);
-      console.log(response.data);
-      console.log(dataPlayer);
     });
     promise.catch((err) => {
       alert(err);
@@ -42,16 +37,11 @@ export default function GameStats() {
 
   function PostComment(e) {
     e.preventDefault();
-    const config = { headers: { Authorization: `Bearer ${token}` } };
     const body = {
       comment: comments,
       gameid: parseInt(gameid),
     };
-    const promise = axios.post(
-      "http://localhost:4000/comments/create",
-      body,
-      config
-    );
+    const promise = GamesService.PostCommentService(body);
     promise.then(() => {
       setTimeout(() => {
         window.location.reload(true);
@@ -63,10 +53,8 @@ export default function GameStats() {
   }
 
   useEffect(() => {
-    const promise = axios.get(`http://localhost:4000/games/stats/${gameid}`);
-    const commentPromise = axios.get(
-      `http://localhost:4000/comments/${gameid}`
-    );
+    const promise = GamesService.GetTeamsGame(gameid);
+    const commentPromise = GamesService.GetComments(gameid);
 
     commentPromise.then((response) => {
       setComment(response.data);
@@ -103,32 +91,20 @@ export default function GameStats() {
               />
             ))
           ) : (
-            <img src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif" />
+            <img src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif" alt="loading"/>
           )}
           <ContainerData>
             <div>
-              <span>Posição</span>
+              <span>{width > 600 ? <p>Posição</p> : <p>Pos</p>}</span>
               <span>
                 <p>Jogador</p>
               </span>
-              <span>
-                <p>Minutos</p>
-              </span>
-              <span>
-                <p>Pontos</p>
-              </span>
-              <span>
-                <p>Assistências</p>
-              </span>
-              <span>
-                <p>Rebotes</p>
-              </span>
-              <span>
-                <p>Roubos</p>
-              </span>
-              <span>
-                <p>Bloqueios</p>
-              </span>
+              <span>{width > 600 ? <p>Minutos</p> : <p>Min</p>}</span>
+              <span>{width > 600 ? <p>Pontos</p> : <p>Pts</p>}</span>
+              <span>{width > 600 ? <p>Assistências</p> : <p>Ast</p>}</span>
+              <span>{width > 600 ? <p>Rebotes</p> : <p>Reb</p>}</span>
+              <span>{width > 600 ? <p>Roubos</p> : <p>Stl</p>}</span>
+              <span>{width > 600 ? <p>Bloqueios</p> : <p>Blk</p>}</span>
             </div>
             {dataPlayer.map((item, index) => (
               <PlayerStats

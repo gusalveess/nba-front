@@ -16,7 +16,7 @@ export const Container = styled.div`
     width: 900px;
   }
 
-    button {
+  button {
     height: 49px;
     width: 320px;
     margin-top: 20px;
@@ -26,18 +26,18 @@ export const Container = styled.div`
     font-size: 16px;
     font-weight: 600;
     outline: none;
-    background-color: #0D0D14;
+    background-color: #0d0d14;
     color: #fff;
     margin-bottom: 45px;
   }
 
   button:hover {
-    background-color: #F38225;
+    background-color: #f38225;
   }
 
   h1 {
     font-size: 26px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 600;
     color: #fff;
     padding-left: 16px;
@@ -50,6 +50,7 @@ export const Container = styled.div`
     width: 90px;
     border: 1px solid #fff;
     border-radius: 50%;
+    background-color: #fff;
   }
 
   span {
@@ -61,9 +62,22 @@ export const Container = styled.div`
 
   p {
     font-size: 36px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 600;
     color: #fff;
     margin-bottom: 20px;
+  }
+
+  @media (max-width: 600px) {
+
+    margin-top: 110px;
+
+    div {
+      border: none;
+    }
+
+    p {
+      font-size: 29px;
+    }
   }
 `;

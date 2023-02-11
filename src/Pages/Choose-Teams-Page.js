@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import Header from "../Components/Header";
-import axios from "axios";
 import { Container } from "../Styles/teams-style";
 import TeamsProps from "../Components/Choose/Teams-Props";
+import UserInfoService from "../Services/User-Info-API";
 
 export default function TeamsChoose() {
   const [data, setData] = useState([]);
-  const getting = localStorage.getItem("token");
-  const stringfy = JSON.stringify(getting);
-  const token = JSON.parse(stringfy);
 
   useEffect(() => {
-    const config = { headers: { Authorization: `Bearer ${token}` } };
-    const promise = axios.get("http://localhost:4000/choose/teams", config);
+    const promise = UserInfoService.GetTeams();
 
     promise.then((response) => {
       console.log(response.data);

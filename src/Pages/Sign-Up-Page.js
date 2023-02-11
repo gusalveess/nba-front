@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Header from "../Components/Header";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { Container, Box } from "../Styles/authentication-style";
-import axios from "axios";
-import { MutatingDots } from "react-loader-spinner";
+import { Container, Box } from "../Styles/sign-up-style";
 import { useNavigate } from "react-router-dom";
+import AuthenticationAPI from "../Services/Authentication-API.js";
 
 export default function SignUpPage() {
   const [type, setType] = useState("password");
@@ -14,7 +13,6 @@ export default function SignUpPage() {
   const [confirm, setConfirm] = useState("");
   const [password, setPassword] = useState("");
   const [picture, setPicture] = useState("");
-  const [loader, setLoader] = useState("Cadastrar-se");
   const Navigate = useNavigate();
 
   function Post(e) {
@@ -25,23 +23,10 @@ export default function SignUpPage() {
       password: password,
       picture: picture,
     };
-    const promise = axios.post("http://localhost:4000/sign-up", body);
+    const promise = AuthenticationAPI.SignUpService(body);
 
     promise.then(() => {
       alert("Cadastrado com sucesso");
-      setLoader(
-        <MutatingDots
-          height="100"
-          width="100"
-          color="#fff"
-          secondaryColor="#fff"
-          radius="12.5"
-          ariaLabel="mutating-dots-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
-      );
       Navigate("/sign-in");
     });
     promise.catch((error) => {
@@ -54,7 +39,7 @@ export default function SignUpPage() {
       <Header />
       <Container>
         <Box>
-          <img src="https://logospng.org/download/nba/logo-nba-2048.png" />
+          <img src="https://logospng.org/download/nba/logo-nba-2048.png" alt="logo" />
           <form onSubmit={Post}>
             <input
               type="text"
@@ -128,7 +113,7 @@ export default function SignUpPage() {
             >
               As senhas estão diferentes!
             </h2>
-            <button>{loader}</button>
+            <button>Cadastrar-se</button>
           </form>
           <button onClick={() => Navigate("/sign-in")}>
             Já tem conta? Logue-se agora

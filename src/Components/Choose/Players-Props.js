@@ -8,6 +8,7 @@ export default function PlayerProps(props) {
   const TeamPic = JSON.parse(JSON.stringify(localStorage.getItem("TeamPic")));
   const TeamId = JSON.parse(JSON.stringify(localStorage.getItem("id")));
   const token = JSON.parse(JSON.stringify(localStorage.getItem("token")));
+  const width = window.screen.width;
 
   function Next() {
     const config = { headers: { Authorization: `Bearer ${token}` } };
@@ -29,8 +30,7 @@ export default function PlayerProps(props) {
       console.log(err);
     });
 
-    promise.then((res) => {
-      alert("Funcionou!");
+    promise.then(() => {
       Navigate("/user/my");
     });
   }
@@ -41,9 +41,11 @@ export default function PlayerProps(props) {
         <span>
           <img src={props.picture} />
         </span>
-        <span><h1>{props.position}</h1></span>
+        <span style={width > 600 ? { display: "flex" } : { display: "none" }}>
+          <h4>{props.position}</h4>
+        </span>
         <span>
-          <h1>{props.name}</h1>
+          <h2>{props.name}</h2>
         </span>
         <button onClick={() => Next()}>Finalizar Escolha</button>
       </CardPlayer>

@@ -88,7 +88,7 @@ export const Box = styled.div`
 
   svg {
     position: absolute;
-    top: 604px;
+    top: 700px;
     left: 1060px;
     font-size: 30px;
     cursor: pointer;
@@ -110,6 +110,7 @@ export const Box = styled.div`
     }
 
     input {
+      font-family: "Sunflower", sans-serif;
       margin-left: 1px;
       width: 300px;
     }
@@ -124,8 +125,7 @@ export const Box = styled.div`
     }
 
     svg {
-      top: 475px;
-      left: 300px;
+      display: none;
     }
   }
 `;

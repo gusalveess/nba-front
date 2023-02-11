@@ -1,22 +1,17 @@
 import Header from "../Components/Header";
 import { Container, SearchContainer } from "../Styles/players-style";
 import { useState } from "react";
-import axios from "axios";
 import PlayerProps from "../Components/Choose/Players-Props";
+import UserInfoService from "../Services/User-Info-API";
 
 export default function ChoosePlayer() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [Change, setChange] = useState(false);
-  const token = JSON.parse(JSON.stringify(localStorage.getItem("token")));
 
   function searchUser(search) {
-    if (search.length >= 3) {
-      const config = { headers: { Authorization: `Bearer ${token}` } };
-      const promise = axios.get(
-        `http://localhost:4000/choose/${search}`,
-        config
-      );
+    if (search.length !== 0) {
+      const promise = UserInfoService.GetPlayer(search);
 
       promise.catch((err) => {
         console.log(err);
@@ -39,6 +34,7 @@ export default function ChoosePlayer() {
     <>
       <Header />
       <Container>
+        <h1>Pesquise o sobrenome do jogador desejado!</h1>
         <SearchContainer>
           <span>
             <form onSubmit={HandleSubmit}>

@@ -38,14 +38,14 @@ export const ContainerGames = styled.div`
   margin-bottom: 40px;
 
   @media (max-width: 600px) {
-    width: 105%;
+    width: 101%;
     border-radius: 0px;
 	}
 `;
 
 export const CardGame = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 20px;
   height: 80px;

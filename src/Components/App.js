@@ -9,24 +9,25 @@ import SignUpPage from "../Pages/Sign-Up-Page.js";
 import TeamsChoose from "../Pages/Choose-Teams-Page.js";
 import UserInfo from "../Pages/User-Info-Page.js";
 import ChoosePlayer from "../Pages/Choose-Player-Page.js";
+import StandingPage from "../Pages/Standing-Page.js";
 
 function App() {
-
   return (
     <>
       <Global />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/game/:gameid" element={<GameStats />} />
-            <Route path="/game/date" element={<DatePage />} />
-            <Route path="/sign-in" element={<SignInPage />} />
-            <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path="/user/my" element={<UserInfo />}/>
-            <Route path="/choose/teams" element={<TeamsChoose />} />
-            <Route path="/choose/player" element={<ChoosePlayer/>}/>
-          </Routes>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/game/:gameid" element={<GameStats />} />
+          <Route path="/game/date" element={<DatePage />} />
+          <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/user/my" element={<UserInfo />} />
+          <Route path="/choose/teams" element={<TeamsChoose />} />
+          <Route path="/choose/player" element={<ChoosePlayer />} />
+          <Route path="/standings" element={<StandingPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

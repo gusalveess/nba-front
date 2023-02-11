@@ -2,17 +2,16 @@ import Header from "../Components/Header";
 import React, { useEffect, useState } from "react";
 import { Center, Container, ContainerGames } from "../Styles/games-live-style";
 import GamesLiveProps from "../Components/Games-Live/Games-Live-Props";
-import axios from "axios";
+import GamesService from "../Services/Games-API";
 
 export default function Home() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const promise = axios.get("http://localhost:4000/games/live");
+    const promise = GamesService.GamesLiveService();
 
     promise.then((response) => {
-        console.log(response.data)
-        setData(response.data);
+      setData(response.data);
     });
     promise.catch((err) => {
       alert(err);
@@ -41,7 +40,7 @@ export default function Home() {
               />
             ))
           ) : (
-            <img src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif" />
+            <img src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif" alt="loading"/>
           )}
         </ContainerGames>
       </Center>

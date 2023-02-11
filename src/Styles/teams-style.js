@@ -33,6 +33,16 @@ export const Container = styled.div`
   button:hover {
     background-color: #f38225;
   }
+
+  @media (max-width: 600px) {
+    div {
+      width: 100%;
+    }
+
+    button {
+      width: 95px;
+    }
+  }
 `;
 
 export const CardTeam = styled.span`
@@ -42,10 +52,6 @@ export const CardTeam = styled.span`
   border: 1px solid #fff;
   width: 100%;
   height: 60px;
-
-  span {
-    width: 120px;
-  }
 
   img {
     width: 40px;

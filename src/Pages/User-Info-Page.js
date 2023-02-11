@@ -1,23 +1,17 @@
 import Header from "../Components/Header";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "../Styles/user-info-style";
 import { useNavigate } from "react-router-dom";
 import UserProps from "../Components/User-Info/User-Props";
+import UserInfoService from "../Services/User-Info-API";
 
 export default function UserInfo() {
-  const getting = localStorage.getItem("token");
-  const stringfy = JSON.stringify(getting);
-  const token = JSON.parse(stringfy);
-  const get = localStorage.getItem("name");
-  const stringify = JSON.stringify(get);
-  const name = JSON.parse(stringify);
+  const name = JSON.parse(JSON.stringify(localStorage.getItem("name")));
   const Navigate = useNavigate();
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const config = { headers: { Authorization: `Bearer ${token}` } };
-    const promise = axios.get("http://localhost:4000/user/my", config);
+    const promise = UserInfoService.GetMyProfile();
 
     promise.then((response) => {
       console.log(response.data);
