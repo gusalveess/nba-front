@@ -6,7 +6,7 @@ const API = APICall();
 const token = GetToken();
 
 function GetMyProfile() {
-  console.log(token)
+  console.log(token);
   const config = { headers: { Authorization: `Bearer ${token}` } };
   const promise = axios.get(`${API}/user/my`, config);
   return promise;
@@ -24,10 +24,17 @@ function GetPlayer(search) {
   return promise;
 }
 
+function CreateInfo(body) {
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+  const promise = axios.post(`${API}/user/create`, body, config);
+  return promise;
+}
+
 const UserInfoService = {
   GetMyProfile,
   GetTeams,
   GetPlayer,
+  CreateInfo,
 };
 
 export default UserInfoService;

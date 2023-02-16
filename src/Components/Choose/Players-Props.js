@@ -1,17 +1,15 @@
-import axios from "axios";
 import { CardPlayer } from "../../Styles/players-style";
 import { useNavigate } from "react-router-dom";
+import UserInfoService from "../../Services/User-Info-API";
 
 export default function PlayerProps(props) {
   const Navigate = useNavigate();
   const TeamName = JSON.parse(JSON.stringify(localStorage.getItem("TeamName")));
   const TeamPic = JSON.parse(JSON.stringify(localStorage.getItem("TeamPic")));
   const TeamId = JSON.parse(JSON.stringify(localStorage.getItem("id")));
-  const token = JSON.parse(JSON.stringify(localStorage.getItem("token")));
   const width = window.screen.width;
 
   function Next() {
-    const config = { headers: { Authorization: `Bearer ${token}` } };
     const body = {
       teamid: parseInt(TeamId),
       teamname: TeamName,
@@ -20,12 +18,7 @@ export default function PlayerProps(props) {
       playername: props.name,
       playerpicture: props.picture,
     };
-    const promise = axios.post(
-      "http://localhost:4000/user/create",
-      body,
-      config
-    );
-
+    const promise = UserInfoService.CreateInfo(body);
     promise.catch((err) => {
       console.log(err);
     });
