@@ -3,18 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { HeaderComponent } from "../Styles/header-style";
 import { BsPersonCircle } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
-import axios from "axios";
 import MenuPopupState from "./Menu";
+import AuthenticationAPI from "../Services/Authentication-API";
 
 export default function Header() {
   const Navigate = useNavigate();
   const token = JSON.parse(JSON.stringify(localStorage.getItem("token")));
 
   function Logout() {
-    const config = { headers: { Authorization: `Bearer ${token}` } };
-    const body = { headers: { Authorization: `Bearer ${token}` } };
-    const promise = axios.post("http://localhost:4000/log-out", body, config);
-    console.log(token);
+    const promise = AuthenticationAPI.LogOut();
     promise.then(() => {
       Navigate("/");
       localStorage.removeItem("token");

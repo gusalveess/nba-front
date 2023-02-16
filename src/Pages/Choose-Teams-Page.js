@@ -11,7 +11,6 @@ export default function TeamsChoose() {
     const promise = UserInfoService.GetTeams();
 
     promise.then((response) => {
-      console.log(response.data);
       setData(response.data);
     });
     promise.catch((err) => {

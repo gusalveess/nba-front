@@ -14,7 +14,6 @@ export default function UserInfo() {
     const promise = UserInfoService.GetMyProfile();
 
     promise.then((response) => {
-      console.log(response.data);
       setData(response.data);
     });
     promise.catch((err) => {

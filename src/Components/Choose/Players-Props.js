@@ -24,6 +24,9 @@ export default function PlayerProps(props) {
     });
 
     promise.then(() => {
+      localStorage.removeItem("TeamName");
+      localStorage.removeItem("id");
+      localStorage.removeItem("TeamPic");
       Navigate("/user/my");
     });
   }

@@ -19,7 +19,6 @@ export default function ChoosePlayer() {
 
       promise.then((res) => {
         setData(res.data);
-        console.log(res.data);
       });
     }
   }
