@@ -20,7 +20,7 @@ function SignInService(body) {
 function LogOut() {
   const config = { headers: { Authorization: `Bearer ${token}` } };
   const body = { headers: { Authorization: `Bearer ${token}` } };
-  const promise = axios.post("http://localhost:4000/log-out", body, config);
+  const promise = axios.post(`${API}/log-out`, body, config);
   return promise;
 }
 
