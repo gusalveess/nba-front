@@ -28,15 +28,15 @@ export default function StandingPage() {
     <>
       <Header />
 
-      <Container>
-        <h4>Escolha o lado da conferência para ver a Classificação:</h4>
+      <Container style={{marginTop: '120px'}}>
+        <h4 style={{marginBottom: '60px'}}>Escolha o lado da conferência para ver a Classificação:</h4>
         <ContainerStats>
           <ContainerNicks>
             <button onClick={() => Choose("east")}>Leste</button>
             <span></span>
             <button onClick={() => Choose("west")}>Oeste</button>
           </ContainerNicks>
-          <ContainerData>
+          <ContainerData style={{marginBottom: '70px'}}>
             <div>
               <span></span>
               <span>

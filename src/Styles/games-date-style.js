@@ -44,6 +44,7 @@ export const Container = styled.div`
     outline: none;
     border-radius: 5px;
     margin-left: 50px;
+    width: 145px;
   }
 
   input[type="date"]::-webkit-calendar-picker-indicator {
@@ -74,7 +75,7 @@ export const Container = styled.div`
       font-family: "Sunflower", sans-serif;
       font-size: 15px;
       margin-left: 1px;
-      width: 125px;
+      width: 145px;
     }
 
     input[type="date"]::-webkit-calendar-picker-indicator {
@@ -238,7 +239,6 @@ export const Center = styled.div`
 `;
 
 export const ContainerGames = styled.div`
-  border: 1px solid #fff;
   border-radius: 20px;
   display: flex;
   align-items: center;

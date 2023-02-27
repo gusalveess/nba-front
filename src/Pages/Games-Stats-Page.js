@@ -65,6 +65,7 @@ export default function GameStats() {
 
     promise.then((response) => {
       setData(response.data);
+      console.log(response.data);
     });
     promise.catch((err) => {
       alert(err);
@@ -87,11 +88,18 @@ export default function GameStats() {
                 visiPoints={item.scores.visitors.points}
                 visiNickname={item.teams.visitors.nickname}
                 visiLogo={item.teams.visitors.logo}
+                status={item.status.long}
+                clock={item.status.clock}
+                periods={item.periods.current}
+                totalperiods={item.periods.total}
                 Choose={Choose}
               />
             ))
           ) : (
-            <img src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif" alt="loading"/>
+            <img
+              src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif"
+              alt="loading"
+            />
           )}
           <ContainerData>
             <div>
@@ -125,14 +133,27 @@ export default function GameStats() {
 
         <div>
           <ContainerComment>
-            {comment.map((item, index) => (
-              <CommentsProps
-                key={index}
-                picture={item.users.picture}
-                name={item.users.name}
-                comment={item.comment}
-              />
-            ))}
+            {comment.length !== 0 ? (
+              comment.map((item, index) => (
+                <CommentsProps
+                  key={index}
+                  picture={item.users.picture}
+                  name={item.users.name}
+                  comment={item.comment}
+                />
+              ))
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: 'center',
+                  textAlign: 'center'
+                }}
+              >
+                <h2>Ainda não há comentários? Seja o primeiro a comentar!</h2>
+              </div>
+            )}
           </ContainerComment>
           <span>
             <form

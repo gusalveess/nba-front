@@ -29,13 +29,20 @@ export const Center = styled.div`
 `;
 
 export const ContainerGames = styled.div`
-  border: 1px solid #fff;
   border-radius: 20px;
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 80%;
   margin-bottom: 40px;
+
+  h1 {
+    font-family: "Sunflower", sans-serif;
+    color: #fff;
+    font-weight: 500;
+    font-size: 36px;
+    padding-bottom: 10px;
+  }
 
   @media (max-width: 600px) {
     width: 101%;
@@ -121,6 +128,10 @@ export const CardGame = styled.div`
       margin-left: 15px;
       font-size: 20px;
     }
+
+    h2 {
+      font-size: 16px;
+    }
   }	
 `
 
@@ -128,6 +139,8 @@ export const Flex = styled.div`
 
 display: flex;
 justify-content: space-around;
+border: 1px solid #fff;
+border-width: 0px 0px 1px 0px;
 width: 90%;
 
 span {
@@ -165,7 +178,6 @@ span {
   @media (max-width: 600px) {
 
   width: 80%;
-  margin-left: 67px;
 
    button {
     width: 50px;

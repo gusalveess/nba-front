@@ -7,7 +7,6 @@ export const Container = styled.div`
   align-items: center;
 
   div {
-    border: 1px solid #fff;
     border-radius: 5px;
     display: flex;
     justify-content: center;

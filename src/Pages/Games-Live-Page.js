@@ -40,7 +40,13 @@ export default function Home() {
               />
             ))
           ) : (
-            <img src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif" alt="loading"/>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+              <h1>Não há jogos ao vivo</h1>
+              <img
+                src="https://media.tenor.com/IOxRkEFDAwMAAAAj/sports-sportsmanias.gif"
+                alt="loading"
+              />
+            </div>
           )}
         </ContainerGames>
       </Center>

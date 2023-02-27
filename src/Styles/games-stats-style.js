@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-top: 180px;
+  margin-top: 210px;
 
   input {
     width: 876px;
@@ -65,7 +65,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 600px) {
-    margin-top: 120px;
+    margin-top: 160px;
 
     h3 {
       font-size: 13.5px;
@@ -81,7 +81,7 @@ export const Container = styled.div`
     }
 
     h4 {
-      font-size: 15px
+      font-size: 15px;
     }
   }
 `;
@@ -103,7 +103,7 @@ export const ContainerComment = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 1000px;
+  width: 99.9%;
   height: 400px;
   overflow-y: scroll;
 
@@ -137,6 +137,15 @@ export const ContainerComment = styled.div`
     padding-left: 10px;
   }
 
+  h2 {
+    font-family: "Sunflower", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    padding-left: 10px;
+    color: #fff;
+    padding-top: 150px;
+  }
+
   p {
     font-family: "Sunflower", sans-serif;
     font-weight: 200;
@@ -148,7 +157,7 @@ export const ContainerComment = styled.div`
   }
 
   @media (max-width: 600px) {
-    max-width: 371px;
+    width: 99.5%;
     border-radius: 0px;
 
     p {
@@ -160,7 +169,6 @@ export const ContainerComment = styled.div`
       box-sizing: border-box;
       width: auto;
     }
-
   }
 `;
 
@@ -168,13 +176,10 @@ export const CardGame = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
-  width: 750px;
 
   img {
     height: 80px;
-    width: 80px;
-    padding-left: 10px;
+    width: 90px;
   }
 
   p {
@@ -182,46 +187,101 @@ export const CardGame = styled.div`
     color: #fff;
     font-weight: 600;
     font-size: 26px;
+    margin-top: 10px;
+  }
+
+  h5 {
+    font-family: "Sunflower", sans-serif;
+    color: #fff;
+    font-weight: 600;
+    font-size: 26px;
     padding-left: 15px;
   }
 
+  h6 {
+    font-family: "Sunflower", sans-serif;
+    color: #FF0046;
+    font-weight: 600;
+    font-size: 25px;
+    padding-left: 20px;
+    padding-right: 5px;
+    margin-top: 15px;
+    -webkit-animation: scale-up-center 1.5s cubic-bezier(0.645, 0.045, 0.355, 1.000) infinite alternate-reverse both;
+	        animation: scale-up-center 1.5s cubic-bezier(0.645, 0.045, 0.355, 1.000) infinite alternate-reverse both;
+  }
+
+  @-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
   h2 {
     font-family: "Sunflower", sans-serif;
     color: #fff;
     font-weight: 600;
     font-size: 26px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   div {
     border: 1px solid #fff;
-    margin-left: 15px;
+    margin-left: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 5px;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
   }
 
   @media (max-width: 600px) {
-    width: 100px;
-
     img {
-      width: 40px;
+      width: 45px;
       height: 40px;
-      padding-left: 5px;
     }
 
     p {
       font-size: 15px;
+      margin-top: 5px;
+    }
+
+    div {
+      width: 40px;
+      margin-left: 20px;
     }
 
     h2 {
       font-size: 15px;
     }
 
-    div {
-      border: none;
+    h5 {
+      font-size: 15px;
+    }
+
+    span {
+      margin-left: 20px;
     }
   }
 `;
@@ -280,47 +340,40 @@ export const ContainerData = styled.div`
     width: 100%;
     font-family: "Sunflower", sans-serif;
     color: #fff;
+    height: 35px;
   }
-
   h1 {
     padding-top: 5px;
     padding-bottom: 5px;
     color: #fff;
   }
-
   p {
     padding-top: 5px;
     padding-bottom: 5px;
   }
-
   span {
     width: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   img {
     width: 25px;
     height: 25px;
   }
-
   @media (max-width: 600px) {
     width: 385px;
-
     p {
       font-size: 13px;
     }
-
     h1 {
       font-size: 11px;
     }
     img {
       padding-right: 5px;
     }
-
     span {
-      width: 40px;
+      width: 47px;
     }
   }
 `;
