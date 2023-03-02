@@ -1,4 +1,9 @@
-import { CardGame, Flex, ContainerNicks } from "../../Styles/games-stats-style";
+import {
+  CardGame,
+  Flex,
+  ContainerNicks,
+  ContainerTime,
+} from "../../Styles/games-stats-style";
 import { Logo } from "../../Assets/Logos";
 
 export default function GameStatsProps(props) {
@@ -18,24 +23,50 @@ export default function GameStatsProps(props) {
               <img src={logoHome} />
               <p>{props.nicknameHome}</p>
             </span>
-            <div>
+            <div style={{ marginLeft: "13px" }}>
               <h2>{props.homePoints}</h2>
             </div>
-            <div style={{border: 'none', marginLeft: '20px', marginRight: '10px', flexDirection: 'column'}}>
-            <h5>Período</h5>
-            <h5 style={{paddingTop: '5px'}}>{props.periods}/{props.totalperiods}</h5>
-            {props.status === 'Finished' ? <h5>X</h5> : <h6>{props.clock === null ? "Intervalo" : props.clock}</h6>}
+            <div
+              style={{
+                border: "none",
+                marginLeft: "3px",
+                marginRight: "10px",
+                flexDirection: "column",
+              }}
+            >
+              <h5>X</h5>
             </div>
             <div>
               <h2>{props.visiPoints}</h2>
             </div>
             <span>
-            <img src={logoVisitors} />
+              <img src={logoVisitors} />
               <p>{props.visiNickname}</p>
             </span>
           </CardGame>
         </Flex>
       </div>
+
+      <ContainerTime
+        style={
+          props.status === "Finished"
+            ? { display: "flex" }
+            : { display: "flex" }
+        }
+      >
+        <div>
+          <h5>Período:</h5>
+          <h5>
+            {props.periods}/{props.totalperiods}
+          </h5>
+        </div>
+
+        <div>
+          <h5>Tempo:</h5>
+            <h6>{props.clock === null ? "Intervalo" : props.clock}</h6>
+        </div>
+      </ContainerTime>
+
       <ContainerNicks>
         <button onClick={() => props.Choose(props.nicknameHome)}>
           {props.nicknameHome} Stats

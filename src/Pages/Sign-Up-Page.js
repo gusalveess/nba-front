@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "../Components/Header";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import { Container, Box } from "../Styles/sign-up-style";
 import { useNavigate } from "react-router-dom";
 import AuthenticationAPI from "../Services/Authentication-API.js";
@@ -13,6 +15,7 @@ export default function SignUpPage() {
   const [confirm, setConfirm] = useState("");
   const [password, setPassword] = useState("");
   const [picture, setPicture] = useState("");
+  const [disable, setDisable] = useState(false);
   const Navigate = useNavigate();
 
   function Post(e) {
@@ -26,10 +29,35 @@ export default function SignUpPage() {
     const promise = AuthenticationAPI.SignUpService(body);
 
     promise.then(() => {
-      alert("Cadastrado com sucesso");
-      Navigate("/sign-in");
+      setDisable(true);
+      toast(`Usuário Cadastrado com sucesso, agora só se logar! 🏀`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        style: { textAlign: "center" },
+        progressStyle: { backgroundColor: "#fc924c" },
+      });
+      setTimeout(() => {
+        Navigate("/sign-in");
+      }, 2500);
     });
     promise.catch((error) => {
+      setDisable(true);
+      toast.error("Erro ao se Cadastrar! 🏀", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       console.log(error);
     });
   }
@@ -37,15 +65,21 @@ export default function SignUpPage() {
   return (
     <>
       <Header />
+      <ToastContainer />
       <Container>
         <Box>
-          <img src="https://logospng.org/download/nba/logo-nba-2048.png" alt="logo" />
+          <img
+            src="https://logospng.org/download/nba/logo-nba-2048.png"
+            alt="logo"
+          />
           <form onSubmit={Post}>
             <input
               type="text"
               placeholder="Nome do usuário"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
+              disabled={disable}
             />
 
             <input
@@ -53,12 +87,16 @@ export default function SignUpPage() {
               placeholder="E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={disable}
             />
             <input
               type={type}
               placeholder="Senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
+              disabled={disable}
               style={
                 password !== confirm
                   ? { border: "2px solid red" }
@@ -81,6 +119,8 @@ export default function SignUpPage() {
               placeholder="Confirme a senha"
               value={confirm}
               onChange={(e) => setConfirm(e.target.value)}
+              required
+              disabled={disable}
               style={
                 password !== confirm
                   ? { border: "2px solid red" }
@@ -103,6 +143,8 @@ export default function SignUpPage() {
               placeholder="Link da sua foto"
               value={picture}
               onChange={(e) => setPicture(e.target.value)}
+              required
+              disabled={disable}
             />
             <h2
               style={
@@ -113,7 +155,7 @@ export default function SignUpPage() {
             >
               As senhas estão diferentes!
             </h2>
-            <button>Cadastrar-se</button>
+            <button disabled={disable}>Cadastrar-se</button>
           </form>
           <button onClick={() => Navigate("/sign-in")}>
             Já tem conta? Logue-se agora

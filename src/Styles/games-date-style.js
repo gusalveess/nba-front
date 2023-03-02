@@ -75,7 +75,7 @@ export const Container = styled.div`
       font-family: "Sunflower", sans-serif;
       font-size: 15px;
       margin-left: 1px;
-      width: 145px;
+      width: 150px;
     }
 
     input[type="date"]::-webkit-calendar-picker-indicator {
@@ -85,7 +85,7 @@ export const Container = styled.div`
     }
 
     button {
-      width: 55px;
+      width: 65px;
       height: 40px;
     }
 

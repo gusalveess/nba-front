@@ -6,6 +6,8 @@ import {
   ContainerNicks,
 } from "../Styles/games-stats-style";
 import { useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import GamesService from "../Services/Games-API";
 import TeamStats from "../Components/Standing/Standing-Props";
 
@@ -19,24 +21,33 @@ export default function StandingPage() {
     promise.then((response) => {
       setData(response.data);
     });
-    promise.catch((err) => {
-      alert(err);
+    promise.catch(() => {
+      toast.error("Erro de requisição, aguarde um minuto! 🏀", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     });
   }
 
   return (
     <>
       <Header />
-
+      <ToastContainer />
       <Container style={{marginTop: '120px'}}>
-        <h4 style={{marginBottom: '60px'}}>Escolha o lado da conferência para ver a Classificação:</h4>
+        <h4 style={{marginBottom: '120px'}}>Escolha o lado da conferência para ver a Classificação:</h4>
         <ContainerStats>
           <ContainerNicks>
             <button onClick={() => Choose("east")}>Leste</button>
             <span></span>
             <button onClick={() => Choose("west")}>Oeste</button>
           </ContainerNicks>
-          <ContainerData style={{marginBottom: '70px'}}>
+          <ContainerData style={{marginBottom: '115px'}}>
             <div>
               <span></span>
               <span>

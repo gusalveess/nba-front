@@ -1,6 +1,8 @@
 import Header from "../Components/Header";
 import { Container, SearchContainer } from "../Styles/players-style";
 import { useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import PlayerProps from "../Components/Choose/Players-Props";
 import UserInfoService from "../Services/User-Info-API";
 
@@ -14,7 +16,16 @@ export default function ChoosePlayer() {
       const promise = UserInfoService.GetPlayer(search);
 
       promise.catch((err) => {
-        console.log(err);
+        toast.error("Erro de requisição, aguarde um minuto! 🏀", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
       });
 
       promise.then((res) => {
@@ -32,6 +43,7 @@ export default function ChoosePlayer() {
   return (
     <>
       <Header />
+      <ToastContainer />
       <Container>
         <h1>Pesquise o sobrenome do jogador desejado!</h1>
         <SearchContainer>

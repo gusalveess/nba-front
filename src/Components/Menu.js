@@ -27,19 +27,19 @@ export default function MenuPopupState() {
           >
             <AiOutlineMenu />
           </Button>
-          <Menu {...bindMenu(popupState)}>
+          <Menu PaperProps={{style: {backgroundColor: '#000', color: '#fff', borderRadius: '5px', border: '1px solid #fff'}}} {...bindMenu(popupState)}>
             <MenuItem onClick={() => Navigate("/")}>
-              <IoMdBasketball style={{ fontSize: "30px" }} />
+              <IoMdBasketball style={{ fontSize: "30px", color: '#FC924C' }} />
               <h5 style={{ paddingLeft: "10px" }}>Jogos ao vivo</h5>
             </MenuItem>
 
             <MenuItem onClick={() => Navigate("/standings")}>
-              <GiDiamondTrophy style={{ fontSize: "30px" }} />
+              <GiDiamondTrophy style={{ fontSize: "30px", color: 'yellow' }} />
               <h5 style={{ paddingLeft: "10px" }}>Classificação</h5>
             </MenuItem>
 
             <MenuItem onClick={() => Navigate("/game/date")}>
-              <CiCalendarDate style={{ fontSize: "30px" }} />
+              <CiCalendarDate style={{ fontSize: "30px", color: 'lightBlue' }} />
               <h5 style={{ paddingLeft: "10px" }}>Buscar jogos pela data</h5>
             </MenuItem>
 
@@ -47,12 +47,12 @@ export default function MenuPopupState() {
               style={token === null ? { display: "none" } : { display: "flex" }}
               onClick={() => Navigate("/user/my")}
             >
-              <GiBasketballJersey style={{ fontSize: "30px" }} />
+              <GiBasketballJersey style={{ fontSize: "30px", color: '#C60000' }} />
               <h5 style={{ paddingLeft: "10px" }}>Informações do usuário</h5>
             </MenuItem>
 
             <MenuItem>
-              <MdEmail style={{ fontSize: "30px" }} />
+              <MdEmail style={{ fontSize: "30px", color: 'lightGrey' }} />
               <BasicModal />
             </MenuItem>
           </Menu>

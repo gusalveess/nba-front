@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Global from "../global.js";
 import Home from "../Pages/Games-Live-Page.js";
@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       <Global />
+     
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

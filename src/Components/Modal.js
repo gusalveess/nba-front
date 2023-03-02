@@ -25,7 +25,7 @@ export default function BasicModal() {
 
   return (
     <div>
-      <Button sx={{color: 'black', fontWeight: '400'}} onClick={handleOpen}>Contato</Button>
+      <Button sx={{color: '#fff', fontWeight: '400'}} onClick={handleOpen}>Contato</Button>
       <Modal
         open={open}
         onClose={handleClose}

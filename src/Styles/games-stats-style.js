@@ -195,41 +195,7 @@ export const CardGame = styled.div`
     color: #fff;
     font-weight: 600;
     font-size: 26px;
-    padding-left: 15px;
   }
-
-  h6 {
-    font-family: "Sunflower", sans-serif;
-    color: #FF0046;
-    font-weight: 600;
-    font-size: 25px;
-    padding-left: 20px;
-    padding-right: 5px;
-    margin-top: 15px;
-    -webkit-animation: scale-up-center 1.5s cubic-bezier(0.645, 0.045, 0.355, 1.000) infinite alternate-reverse both;
-	        animation: scale-up-center 1.5s cubic-bezier(0.645, 0.045, 0.355, 1.000) infinite alternate-reverse both;
-  }
-
-  @-webkit-keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-@keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
   h2 {
     font-family: "Sunflower", sans-serif;
     color: #fff;
@@ -241,7 +207,6 @@ export const CardGame = styled.div`
 
   div {
     border: 1px solid #fff;
-    margin-left: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -253,7 +218,6 @@ export const CardGame = styled.div`
   span {
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
   }
 
   @media (max-width: 600px) {
@@ -269,7 +233,6 @@ export const CardGame = styled.div`
 
     div {
       width: 40px;
-      margin-left: 20px;
     }
 
     h2 {
@@ -284,6 +247,12 @@ export const CardGame = styled.div`
       margin-left: 20px;
     }
   }
+
+  @media (min-width: 700px) {
+  span {
+    margin-left: 25px;
+  }
+}
 `;
 
 export const Flex = styled.div`
@@ -374,6 +343,75 @@ export const ContainerData = styled.div`
     }
     span {
       width: 47px;
+    }
+  }
+`;
+
+export const ContainerTime = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #fff;
+  border-width: 0px 0px 1px 0px;
+
+  div {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 14px;
+  }
+
+  h5 {
+    font-family: "Sunflower", sans-serif;
+    color: #fff;
+    font-weight: 600;
+    font-size: 26px;
+  }
+
+  h6 {
+    font-family: "Sunflower", sans-serif;
+    color: #ff0046;
+    padding-left: 10px;
+    font-weight: 600;
+    font-size: 25px;
+    -webkit-animation: scale-up-center 1.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+      infinite alternate-reverse both;
+    animation: scale-up-center 1.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+      infinite alternate-reverse both;
+  }
+
+  @-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 600px) {
+    height: 40px;
+
+    h5 {
+      font-size: 15px;
+    }
+    h6 {
+      font-size: 15px;
     }
   }
 `;

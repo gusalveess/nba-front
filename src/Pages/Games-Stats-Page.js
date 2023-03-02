@@ -1,6 +1,8 @@
 import Header from "../Components/Header";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import {
   Container,
   ContainerComment,
@@ -31,7 +33,16 @@ export default function GameStats() {
       setDataPlayer(filter);
     });
     promise.catch((err) => {
-      alert(err);
+      toast.error("Erro de requisição, aguarde um minuto! 🏀", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     });
   }
 
@@ -48,7 +59,16 @@ export default function GameStats() {
       }, 1000);
     });
     promise.catch((err) => {
-      console.log(err);
+      toast.error("Não foi possível comentar, tente novamente ou mande um e-mail para o desenvolvedor! 🏀", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     });
   }
 
@@ -60,7 +80,16 @@ export default function GameStats() {
       setComment(response.data);
     });
     commentPromise.catch((err) => {
-      alert(err);
+      toast.error("Não é possível ver os comentários, atualize o site ou mande um e-mail para o desenvolvedor! 🏀", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     });
 
     promise.then((response) => {
@@ -68,13 +97,23 @@ export default function GameStats() {
       console.log(response.data);
     });
     promise.catch((err) => {
-      alert(err);
+      toast.error("Erro de requisição, aguarde um minuto! 🏀", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     });
   }, []);
 
   return (
     <>
       <Header />
+      <ToastContainer />
       <Container>
         <ContainerStats>
           {data.length !== 0 ? (
@@ -147,8 +186,8 @@ export default function GameStats() {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: 'center',
-                  textAlign: 'center'
+                  alignItems: "center",
+                  textAlign: "center",
                 }}
               >
                 <h2>Ainda não há comentários? Seja o primeiro a comentar!</h2>

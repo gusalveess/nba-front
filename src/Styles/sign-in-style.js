@@ -88,8 +88,8 @@ export const Box = styled.div`
 
   svg {
     position: absolute;
-    top: 604px;
-    left: 1060px;
+    top: 602px;
+    left: 1068px;
     font-size: 30px;
     cursor: pointer;
   }
@@ -124,8 +124,8 @@ export const Box = styled.div`
     }
 
     svg {
-      top: 475px;
-      left: 300px;
+      top: 473px;
+      left: 306px;
     }
   }
 `;
