@@ -50,7 +50,7 @@ export default function GameStatsProps(props) {
       <ContainerTime
         style={
           props.status === "Finished"
-            ? { display: "flex" }
+            ? { display: "none" }
             : { display: "flex" }
         }
       >
